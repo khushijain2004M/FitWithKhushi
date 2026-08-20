@@ -1,0 +1,5 @@
+import { useMemo } from "react";
+import { Apple, Beef, Wheat } from "lucide-react";
+import { useFitness } from "../../context/FitnessContext";
+import { Card, ProgressBar } from "../ui/Primitives";
+export default function NutritionMacroWidget() { const { meals } = useFitness(); const totals = useMemo(() => meals.reduce((a, m) => ({calories:a.calories + +m.calories, protein:a.protein + +m.protein, carbs:a.carbs + +m.carbs, fat:a.fat + +m.fat}), {calories:0, protein:0, carbs:0, fat:0}), [meals]); const items = [["Protein",totals.protein,140,"purple",Beef],["Carbs",totals.carbs,260,"cyan",Wheat],["Fat",totals.fat,75,"orange",Apple]]; return <Card className="macro-widget"><div className="list-header"><div><h3>Macro balance</h3><p>{totals.calories} calories logged today</p></div></div>{items.map(([name, current, goal, color, Icon]) => <div className="macro-row" key={name}><span className={`mini-icon ${color}`}><Icon size={15}/></span><div><div><b>{name}</b><span>{current} / {goal}g</span></div><ProgressBar value={current} max={goal} color={color}/></div></div>)}</Card>; }
