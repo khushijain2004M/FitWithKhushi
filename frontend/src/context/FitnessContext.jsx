@@ -3,10 +3,12 @@ import { apiClient } from "../services/apiClient";
 
 const FitnessContext = createContext(null);
 const key = "fitwithkhushi-data-v1";
+const authKey = "fitwithkhushi-auth-v1";
 const emptyFitnessData = { water: 0, goal: 8, bmi: 0, calories: 0, plan: "Free", workouts: [], meals: [] };
 const seed = { theme: "neon", userData: {} };
 const errorMessage = (error) => error.response?.data?.message || "Something went wrong. Please try again.";
 const normalizeUser = (user) => ({ name: user.fullName || user.name, email: user.email });
+const readLocalAccounts = () => { try { return JSON.parse(localStorage.getItem(authKey) || "{}"); } catch { return {}; } };
 
 function readInitial() {
   try {
@@ -43,17 +45,39 @@ export function FitnessProvider({ children }) {
     ...activeData, theme: data.theme, user, authReady,
     setTheme: (theme) => setData((current) => ({ ...current, theme })),
     register: async ({ name, email, password }) => {
+      const normalizedEmail = email.trim().toLowerCase();
+      if (window.location.hostname.endsWith("github.io")) {
+        const accounts = readLocalAccounts();
+        accounts[normalizedEmail] = { fullName: name.trim(), email: normalizedEmail, password };
+        localStorage.setItem(authKey, JSON.stringify(accounts));
+        return { ok: true, message: "Account saved on this device. You can log in now." };
+      }
       try {
         const response = await apiClient.post("/auth/register", { fullName: name.trim(), email: email.trim().toLowerCase(), password });
         return { ok: true, message: response.data.message };
-      } catch (error) { return { ok: false, message: errorMessage(error) }; }
+      } catch (error) {
+        const accounts = readLocalAccounts();
+        accounts[normalizedEmail] = { fullName: name.trim(), email: normalizedEmail, password };
+        localStorage.setItem(authKey, JSON.stringify(accounts));
+        return { ok: true, message: "Account saved on this device. You can log in now." };
+      }
     },
     authenticate: async ({ email, password }) => {
+      const normalizedEmail = email.trim().toLowerCase();
+      if (window.location.hostname.endsWith("github.io")) {
+        const account = readLocalAccounts()[normalizedEmail];
+        if (account && account.password === password) { setUser(normalizeUser(account)); return { ok: true }; }
+        return { ok: false, message: "Create a local account first or check your details." };
+      }
       try {
         const response = await apiClient.post("/auth/login", { email: email.trim().toLowerCase(), password });
         setUser(normalizeUser(response.data.user));
         return { ok: true };
-      } catch (error) { return { ok: false, message: errorMessage(error) }; }
+      } catch (error) {
+        const account = readLocalAccounts()[normalizedEmail];
+        if (account && account.password === password) { setUser(normalizeUser(account)); return { ok: true }; }
+        return { ok: false, message: "Unable to sign in. Create a local account first or check your details." };
+      }
     },
     resendVerification: async (email) => {
       try { const response = await apiClient.post("/auth/resend-verification", { email }); return { ok: true, message: response.data.message }; }
