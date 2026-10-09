@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { FitnessProvider } from "./context/FitnessContext";
 import AppShell from "./components/layout/AppShell";
 import Home from "./pages/Home";
@@ -19,7 +19,7 @@ import ProtectedRoute from "./components/routing/ProtectedRoute";
 import { ForgotPasswordPage, ResetPasswordPage, VerifyEmailPage } from "./pages/AuthUtilityPage";
 
 export default function App() {
-  return <FitnessProvider><BrowserRouter><Routes>
+  return <FitnessProvider><HashRouter><Routes>
     <Route element={<AppShell/>}>
       <Route path="/" element={<Home/>}/>
       <Route element={<ProtectedRoute/>}>
@@ -29,5 +29,5 @@ export default function App() {
         <Route path="/contact" element={<ContactPage/>}/><Route path="/profile" element={<ProfilePage/>}/>
       </Route><Route path="*" element={<NotFoundPage/>}/>
     </Route><Route path="/login" element={<LoginPage/>}/><Route path="/verify-email" element={<VerifyEmailPage/>}/><Route path="/forgot-password" element={<ForgotPasswordPage/>}/><Route path="/reset-password" element={<ResetPasswordPage/>}/>
-  </Routes></BrowserRouter></FitnessProvider>;
+  </Routes></HashRouter></FitnessProvider>;
 }
