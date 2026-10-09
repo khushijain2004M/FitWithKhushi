@@ -31,7 +31,7 @@ const AuthFooter = ({
       <div className="flex items-center gap-4">
         <div className="h-px flex-1 bg-white/10" />
         <span className="text-xs uppercase tracking-[0.2em] text-slate-500">
-          FitWithSudesh
+          FitWithKhushi
         </span>
         <div className="h-px flex-1 bg-white/10" />
       </div>
@@ -62,7 +62,7 @@ const AuthFooter = ({
 
       {/* Copyright */}
       <p className="text-center text-xs text-slate-600">
-        © {new Date().getFullYear()} FitWithSudesh. All rights reserved.
+        © {new Date().getFullYear()} FitWithKhushi. All rights reserved.
       </p>
     </motion.div>
   );

@@ -1,5 +1,5 @@
-import { Dumbbell, Mail, ArrowUpRight } from "lucide-react";
-import { FaDiscord, FaGithub, FaLinkedin } from "react-icons/fa";
+import { Dumbbell, ArrowUpRight } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 function Footer() {
   const productLinks = [
@@ -50,7 +50,7 @@ function Footer() {
 
               <div>
                 <h2 className="text-2xl font-bold">
-                  FitWithSudesh
+                  FitWithKhushi
                 </h2>
 
                 <p className="text-slate-400 text-sm">
@@ -69,42 +69,14 @@ function Footer() {
 
             <div className="flex gap-4 mt-8">
 
-              {/* LinkedIn */}
-              <a
-                href="https://linkedin.com/in/sudeshmehar3"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-11 h-11 rounded-xl bg-slate-900 hover:bg-blue-600 transition flex items-center justify-center"
-              >
-                <FaLinkedin size={20} />
-              </a>
-
               {/* GitHub */}
               <a
-                href="https://github.com/sudesh4545"
+                href="https://github.com/khushijain2004M"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 rounded-xl bg-slate-900 hover:bg-blue-600 transition flex items-center justify-center"
               >
                 <FaGithub size={20} />
-              </a>
-
-              {/* Discord */}
-              <a
-                href="https://discord.gg/Q7r9xvje9Q"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-11 h-11 rounded-xl bg-slate-900 hover:bg-blue-600 transition flex items-center justify-center"
-              >
-                <FaDiscord size={20} />
-              </a>
-
-              {/* Email */}
-              <a
-                href="mailto:sudeshmehar3@gmail.com"
-                className="w-11 h-11 rounded-xl bg-slate-900 hover:bg-blue-600 transition flex items-center justify-center"
-              >
-                <Mail size={20} />
               </a>
 
             </div>
@@ -195,7 +167,7 @@ function Footer() {
         <div className="border-t border-slate-800 mt-16 pt-8 flex flex-col lg:flex-row justify-between items-center gap-4">
 
           <p className="text-slate-500 text-sm">
-            © 2026 FitWithSudesh. All rights reserved.
+            © 2026 FitWithKhushi. All rights reserved.
           </p>
 
           <div className="flex gap-8 text-sm text-slate-500">

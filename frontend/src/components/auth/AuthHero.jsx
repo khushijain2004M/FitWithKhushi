@@ -46,7 +46,7 @@ const AuthHero = () => {
         <BrainCircuit className="text-cyan-600" size={18} />
 
         <span className="font-semibold text-cyan-700">
-          FitWithSudesh AI
+          FitWithKhushi AI
         </span>
       </motion.div>
 

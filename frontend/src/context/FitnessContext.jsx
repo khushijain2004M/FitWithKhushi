@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { apiClient } from "../services/apiClient";
 
 const FitnessContext = createContext(null);
-const key = "fitwithsudesh-data-v1";
+const key = "fitwithkhushi-data-v1";
 const emptyFitnessData = { water: 0, goal: 8, bmi: 0, calories: 0, plan: "Free", workouts: [], meals: [] };
 const seed = { theme: "neon", userData: {} };
 const errorMessage = (error) => error.response?.data?.message || "Something went wrong. Please try again.";

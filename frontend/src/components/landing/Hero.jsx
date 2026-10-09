@@ -75,7 +75,7 @@ function Hero() {
             </h1>
 
             <p className="mt-8 text-lg text-slate-600 leading-8 max-w-xl">
-              FitWithSudesh combines AI coaching, workout planning,
+              FitWithKhushi combines AI coaching, workout planning,
               nutrition tracking and progress analytics into one
               intelligent fitness platform.
             </p>
@@ -146,7 +146,7 @@ function Hero() {
                   </p>
 
                   <h3 className="text-2xl font-bold text-slate-900">
-                    Sudesh 👋
+                    Khushi 👋
                   </h3>
 
                 </div>

@@ -42,7 +42,7 @@ app.use("/api/ai", aiRoutes);
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
-    message: "FitWithSudesh Backend is Running 🚀",
+    message: "FitWithKhushi Backend is Running 🚀",
   });
 });
 

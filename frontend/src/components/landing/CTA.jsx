@@ -37,7 +37,7 @@ function CTA() {
             </h2>
 
             <p className="mt-8 max-w-3xl mx-auto text-blue-100 text-lg leading-8">
-              <span className="text-4xl">5 of my friends</span> already using FitWithSudesh to
+              <span className="text-4xl">5 of my friends</span> already using FitWithKhushi to
               train smarter, recover faster and reach their goals
               with AI-powered coaching and with some faith in God, join quickly.
               <br />

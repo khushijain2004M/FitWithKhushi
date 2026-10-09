@@ -20,7 +20,7 @@ return ( <div className="relative overflow-hidden rounded-[28px] border border-s
       </div>
 
       <h2 className="text-2xl font-bold text-slate-900">
-        Good Morning, Sudesh 👋
+        Good Morning, Khushi 👋
       </h2>
 
       <div className="mt-2 flex items-center gap-2 text-emerald-600">

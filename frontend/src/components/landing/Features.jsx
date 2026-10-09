@@ -88,7 +88,7 @@ function Features() {
           </h2>
 
           <p className="text-slate-500 text-lg mt-6 leading-8">
-            FitWithSudesh combines intelligent coaching, workout planning,
+            FitWithKhushi combines intelligent coaching, workout planning,
             nutrition management and analytics into one seamless platform.
           </p>
         </motion.div>

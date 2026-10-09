@@ -87,7 +87,7 @@ const Register = () => {
       <AuthCard>
         <AuthHeader
           title="Create your account 🚀"
-          subtitle="Join FitWithSudesh and start tracking your fitness journey."
+          subtitle="Join FitWithKhushi and start tracking your fitness journey."
         />
 
         <form

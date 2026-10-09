@@ -18,9 +18,9 @@ const sendVerificationEmail = async (user) => {
   const url = `${clientUrl()}/verify-email?token=${token}`;
   await sendEmail({
     to: user.email,
-    subject: "Verify your FitWithSudesh account",
+    subject: "Verify your FitWithKhushi account",
     text: `Verify your account: ${url}`,
-    html: `<p>Welcome to FitWithSudesh.</p><p><a href="${url}">Verify your email address</a></p><p>This link expires in 24 hours.</p>`,
+    html: `<p>Welcome to FitWithKhushi.</p><p><a href="${url}">Verify your email address</a></p><p>This link expires in 24 hours.</p>`,
   });
 };
 
@@ -81,7 +81,7 @@ const forgotPassword = asyncHandler(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
   const url = `${clientUrl()}/reset-password?token=${token}`;
   try {
-    await sendEmail({ to: user.email, subject: "Reset your FitWithSudesh password", text: `Reset your password: ${url}`, html: `<p><a href="${url}">Reset your password</a></p><p>This link expires in 30 minutes.</p>` });
+    await sendEmail({ to: user.email, subject: "Reset your FitWithKhushi password", text: `Reset your password: ${url}`, html: `<p><a href="${url}">Reset your password</a></p><p>This link expires in 30 minutes.</p>` });
   } catch (error) {
     user.passwordResetToken = undefined;
     user.passwordResetExpires = undefined;

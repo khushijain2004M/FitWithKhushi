@@ -61,7 +61,7 @@ function Navbar({ theme, onThemeChange }) {
 
           <div>
             <h2 className="text-xl font-bold text-slate-900">
-              FitWithSudesh
+              FitWithKhushi
             </h2>
 
             <p className="text-xs text-slate-500 -mt-1">
